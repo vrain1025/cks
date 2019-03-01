@@ -1,0 +1,103 @@
+    <div id="leftsidebar" class="sidebar">
+        <div class="sidebar-scroll">
+           <nav id="leftsidebar-nav" class="sidebar-nav">
+                <ul id="main-menu" class="metismenu">
+                    <li class="heading">导航菜单</li>
+                    <li class="active"><a href="{:url('index/index/index')}"><i class="icon-home"></i><span>数据展示板</span></a></li>
+                    <li class="heading">常用查询</li>
+                    <li><a href="{:url('index/mtk/index')}"><i class="icon-diamond"></i><span>母胎存库查询</span></a></li>
+                    <li><a href="{:url('index/cpk/index')}"><i class="icon-pencil"></i><span>成品库存查询</span></a></li>
+                    <li><a href="{:url('index/cpck/outBound')}"><i class="icon-tag"></i><span>出库查询</span></a></li>                 
+                    <li class="heading">仓库系统</li>
+                    <li class="middle">
+                        <a href="#uiElements" class="has-arrow"><i class="icon-cog"></i><span>母胎库</span></a>
+                        <ul>
+                            <li><a href="{:url('index/mtk/index')}">母胎库存统计</a></li>
+                            <li><a href="{:url('index/mtk/query')}">母胎信息检索</a></li>                         
+                            <li><a href="{:url('index/mtk/batchQuery')}">母胎条码批量查询</a></li>
+                            <li><a href="{:url('index/mtk/wareHousing')}">母胎扫码入库</a></li>                     
+                        </ul>
+                    </li>
+                           <li>
+                        <a href="#forms" class="has-arrow"><i class="icon-legal"></i><span>半成品库</span></a>
+                        <ul>
+                            <li><a href="{:url('index/bcpk/index')}">半成品库存统计</a></li>
+                            <li><a href="{:url('index/bcpk/query')}">半成品信息检索</a></li>
+                            <li><a href="{:url('index/bcpk/batchQuery')}">半成品条码批量查询</a></li>
+                            <li><a href="{:url('index/bcpk/wareHousing')}">半成品扫码入库</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#forms" class="has-arrow"><i class=" icon-cogs"></i><span>成品库</span></a>
+                        <ul>
+                            <li><a href="{:url('index/cpk/index')}">成品库存统计</a></li>
+                            <li><a href="{:url('index/cpk/query')}">成品信息检索</a></li>
+                            <li><a href="{:url('index/cpk/batchQuery')}">成品条码批量查询</a></li>
+                            <li><a href="{:url('index/cpk/wareHousing')}">成品扫码入库</a></li>
+                            <li><a href="{:url('index/cpk/daliySheet')}">成品日报表</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Tables" class="has-arrow"><i class="icon-truck"></i><span>成品出库</span></a>
+                        <ul>
+                            <li><a href="{:url('index/cpck/index')}">出库统计</a></li>
+                            <li><a href="{:url('index/cpck/query')}">出库信息检索</a></li>
+                            <li><a href="{:url('index/cpck/batchQuery')}">出库条码批量查询</a></li>
+                            <li><a href="{:url('index/cpck/wareHousing')}">成品扫码出库</a></li>
+                            <li><a href="{:url('index/cpck/outBound')}">成品出库查询</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#FileManager" class="has-arrow"><i class="icon-warning-sign"></i><span>不良品库</span></a>
+                        <ul>                                    
+                            <li><a href="{:url('index/blpk/index')}">不良品统计</a></li>
+                            <li><a href="{:url('index/blpk/query')}">不良品信息检索</a></li>
+                            <li><a href="{:url('index/blpk/batchQuery')}">不良品条码批量查询</a></li>
+                            <li><a href="{:url('index/blpk/wareHousing')}">不良品扫码入库</a></li>
+                            <li><a href="{:url('index/blpk/outBound')}">不良品扫码出库</a></li>
+                        </ul>
+                    </li>  
+
+                    <li>
+                        <a href="#Widgets" class="has-arrow"><i class=" icon-signin"></i><span>退货库</span></a>
+                        <ul>                                    
+                            <li><a href="{:url('index/thk/index')}">退货统计</a></li>
+                            <li><a href="{:url('index/thk/query')}">退货信息检索</a></li>
+                            <li><a href="{:url('index/thk/batchQuery')}">退货条码批量查询</a></li>
+                            <li><a href="{:url('index/thk/wareHousing')}">退货扫码入库</a></li>
+                            <li><a href="{:url('index/thk/outBound')}">退货扫码出库</a></li>
+                        </ul>
+                    </li>
+                   
+                    <li>
+                        <a href="#FileManager" class="has-arrow"><i class="icon-trash"></i><span>废品库</span></a>
+                        <ul>                                    
+                            <li><a href="{:url('index/fpk/index')}">废品统计</a></li>
+                            <li><a href="{:url('index/fpk/query')}">废品信息检索</a></li>
+                            <li><a href="{:url('index/fpk/batchQuery')}">废品条码批量查询</a></li>
+                            <li><a href="{:url('index/fpk/wareHousing')}">废品扫码入库</a></li>
+                            <li><a href="{:url('index/fpk/outBound')}">废品扫码出库</a></li>
+                        </ul>
+                    </li> 
+                     <li>
+                        <a href="#FileManager" class="has-arrow"><i class="icon-user"></i><span>用户管理</span></a>
+                        <ul>                                    
+                            <li><a href="{:url('index/user/userlist')}">用户管理</a></li>
+                            <li><a href="{:url('index/user/add')}">添加用户</a></li>
+                            <li><a href="{:url('index/user/edit')}">修改用户</a></li>                    
+                        </ul>
+                    </li>
+                       <li>
+                        <a href="#FileManager" class="has-arrow"><i class="icon-group"></i><span>用户组管理</span></a>
+                        <ul>                              
+                            <li><a href="{:url('index/AuthGroup/userGrouplist')}">用户组管理</a></li>
+                            <li><a href="{:url('index/AuthGroup/userGrouplist')}">添加用户组</a></li>
+                            <li><a href="{:url('index/AuthGroup/userGrouplist')}">用户组编辑</a></li>
+                            <li><a href="{:url('index/AuthGroup/authList')}">用户权限管理</a></li>                          
+                        </ul>
+                    </li>                                           
+                </ul>
+            </nav>
+        </div>
+    </div>

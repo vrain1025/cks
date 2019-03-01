@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<title>:: 中橡狼牌轮胎 :: </title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="中橡狼牌轮胎 Bootstrap 4.1.1 Admin Template">
+<meta name="author" content="ThemeMakker, design by: ThemeMakker.com">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- VENDOR CSS -->
+<link rel="stylesheet" href="__STATIC__/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="__STATIC__/vendor/animate-css/animate.min.css">
+<link rel="stylesheet" href="__STATIC__/vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="__STATIC__/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+<link rel="stylesheet" href="__STATIC__/vendor/chartist/css/chartist.min.css">
+<link rel="stylesheet" href="__STATIC__/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="__STATIC__/css/main.css">
+<link rel="stylesheet" href="__STATIC__/css/color_skins.css">
+</head>
+<body class="theme-blue">
+
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img src="__STATIC__/images/thumbnail.png" width="48" height="48" alt="中橡狼牌轮胎"></div>
+        <p>载入中，请...</p>        
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+<div class="overlay" style="display: none;"></div>
+
+<div id="wrapper">
+<!-- 引入头部文件 -->
+    {include file="common/top"/}
+<!-- 引入左侧导航 -->
+    {include file="common/left"/}
+
+  {include file="common/menu"/}
+
+    <div id="main-content">
+        <div class="container-fluid">
+     
+
+            <div class="row clearfix">
+                <div class="col-12">
+              <!-- 排序开始 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 pull-right">
+                                <form action="" method="get">
+                                    <div class="form-group">
+                                        <label>排序方式</label>
+                                        <br>
+                                        <label class="fancy-radio custom-color-red">
+                                            <input name="px" required="" type="radio" value="" data-parsley-errors-container="#error-radio" data-parsley-multiple="gender" {if condition="$px eq ''" } checked="checked" {/if}> <span><i></i>按商品编码排列</span>
+                                        </label>
+                                        <label class="fancy-radio custom-color-blue">
+                                            <input name="px" type="radio" value="asc" data-parsley-multiple="gender" {if condition="$px eq 'asc'" } checked="checked" {/if}> <span><i></i>按库存升序排列</span>
+                                        </label>
+                                        <label class="fancy-radio custom-color-green">
+                                            <input name="px" type="radio" value="desc" data-parsley-multiple="gender" {if condition="$px eq 'desc'" } checked="checked" {/if}> <span><i></i>按库存降序排列</span>
+                                        </label>
+                                        <input type="submit"  class="btn btn-success  " value="确认">
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                            <!-- 排序结束 -->
+             
+                </div>
+            </div>
+
+
+<table  class="table table-hover">    <thead class="thead-dark">
+      <tr>      
+      <th>商品编码</th>
+      <th>产品型号</th>
+      <th>花纹</th>
+      <th>规格</th>    
+      <th>数量</th>
+      </tr>
+    </thead><tr></tr>
+ {volist name="list" id="mtk"}
+    <td>{$mtk.ordernum} </td> 
+        <td>{$mtk.model} </td> 
+        <td>{$mtk.figure} </td>
+        <td>{$mtk.tp} </td>  
+        <td>{$mtk.cnt}条 </td>         
+        </tr>
+{/volist}
+
+
+
+</table>
+{$list->render()}
+     
+            </div>
+          
+      <div class=" alert alert-success text-center col-lg-4 col-md-6 col-sm-12 pull-left"><strong>成品库共有{$count}条轮胎&nbsp;&nbsp;<i class="icon-spinner icon-spin"></i> &nbsp;&nbsp;其中普通胎{$countnoyst}条&nbsp;&nbsp;<i class="icon-spinner icon-spin"></i>&nbsp;&nbsp; 演示胎{$countyst}条</strong></div>
+                            </div>
+            
+        </div>
+</div>
+
+{include file="common/foot"/}
+
+</body>
+</html>

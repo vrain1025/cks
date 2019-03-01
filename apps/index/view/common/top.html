@@ -1,0 +1,62 @@
+<nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <img src="__STATIC__/images/logo-icon.svg" alt="中橡狼牌轮胎 Logo" class="img-responsive logo">
+                    <span class="name">中橡狼牌轮胎</span>
+                </a>
+            </div>
+            
+            <div class="navbar-right">
+                <ul class="list-unstyled clearfix mb-0">
+                    <li>
+                        <div class="navbar-btn btn-toggle-show">
+                            <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu icon-reorder"></i></button>
+                        </div>                        
+                        <a href="javascript:void(0);" class="btn-toggle-fullwidth btn-toggle-hide"><i class="icon-reorder"></i></a>
+                    </li>
+                    <li>
+                        <form id="navbar-search" class="navbar-form search-form">
+                            <input value="" class="form-control" placeholder="搜索" type="text">
+                            <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
+                        </form>
+                    </li>
+                    <li>
+                        <div id="navbar-menu">
+                            <ul class="nav navbar-nav">
+                              
+                          
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                                        <img class="rounded-circle" src="__STATIC__/images/user-small.png" width="30" alt="">
+                                    </a>
+                                    <div class="dropdown-menu animated flipInY user-profile">
+                                        <div class="d-flex p-3 align-items-center">
+                                            <div class="drop-left m-r-10">
+                                                <img src="__STATIC__/images/user-small.png" class="rounded" width="50" alt="">
+                                            </div>
+                                            <div class="drop-right">
+                                                <h4>{$Request.session.username}</h4>
+                                                <p class="user-name"></p>
+                                            </div>
+                                        </div>
+                                        <div class="m-t-10 p-3 drop-list">
+                                            <ul class="list-unstyled">
+                                                <li><a href="{:url('index/login/logout')}"><i class="icon-user"></i>用户信息</a></li>
+                                                <li><a href="{:url('index/login/logout')}"><i class="icon-user-following"></i>操作员</a></li>
+                                                <li><a href="{:url('index/login/logout')}"><i class="icon-settings"></i>修改密码</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="{:url('index/login/logout')}"><i class="icon-power"></i>退出登陆</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                         
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>

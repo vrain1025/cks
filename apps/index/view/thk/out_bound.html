@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+{include file="common/head"/}
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img src="__STATIC__/images/thumbnail.png" width="48" height="48" alt="中橡狼牌轮胎"></div>
+                <p>载入中，请...</p>
+            </div>
+        </div>
+        <!-- Overlay For Sidebars -->
+        <div class="overlay" style="display: none;"></div>
+        <div id="wrapper">
+            <!-- 引入头部文件 -->
+            {include file="common/top"/}
+            <!-- 引入左侧导航 -->
+            {include file="common/left"/}
+             {include file="common/menu"/}
+                        <div id="main-content">
+                            <div class="container-fluid">
+                                <div class="block-header">
+                                    <div class="row">
+                                        <div class="col-lg-5 col-md-8 col-sm-12">
+                                            <h2>出库信息查询</h2>
+                                        </div>
+                                        <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+                                            <ul class="breadcrumb justify-content-end">
+                                                <li class="breadcrumb-item"><a href="index.php"><i class="icon-home"></i></a></li>
+                                                <li class="breadcrumb-item active">出库信息查询</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-12">
+                                        <div class="col-4"></div>
+                                        <div class="col-12">
+                                            <form name="add"  method="get" action="" >
+              <div class="form-group">
+                  <label for="dls" class="my-3">选择收货单位</label>
+                <select name="dls" class="form-control col-4">               
+                <option value="">请选择代理商名称</option>
+                {volist name="dls" id="dls"}
+                <option value="{$dls.dls}">{$dls.dls}</option>
+                 {/volist}              
+                </select>
+              <div class="input-group mb-3 my-3">
+                <input type="text" class="form-control" placeholder="请输入订单编号"  name="ddnum"   >
+                <input type="text" class="form-control mx-3" placeholder="请输入发货日期"  name="fhdate" > 
+                <input type="text" class="form-control mx-3" placeholder="请输收货人姓名"  name="shname" >
+                <input type="text" class="form-control" placeholder="请输入收货人电话"  name="shphone" {/if}>
+                <input type="text" class="form-control mx-3" placeholder="请输入收货人地址"  name="shaddr" >               
+                <input type="submit" name="submit" class="btn btn-primary mx-3" value="查询">
+              </div>
+</div>
+ </form>
+                                        </div>
+                                  
+                                    </div>
+                                </div>
+                                <table class="table table-hover">
+                                            <thead class="thead-dark">
+                                                <tr><th>发货单号</th>
+                                                    <th>收货单位</th>
+                                                    <th>序号</th>                                                    
+                                                    <th>商品编码</th>
+                                                    <th>产品型号</th>
+                                                    <th>条形码</th>
+                                                    <th>生产日期</th>
+                                                    <th>发货日期</th>
+                                                </tr>
+                                            </thead>
+                                     
+                                            {volist name="list" id="cpck"}
+                                            <tr>
+                                                <td>{$cpck.ddnum}</td>
+                                                <td>{$cpck.dls} </td>
+                                            <td> {$page?($currentPage-1)*10+$i:$i}</td>    
+                                            
+                                            <td>{$cpck.ordernum} </td>
+                                            <td>{$cpck.model} </td>                                       
+                                            {if condition="$cpck.tp neq null"}
+                                            <td>{$cpck.code} </td>
+                                            <td>{$cpck.pd} </td>
+                                            {/if}
+                                            <td>{$cpck.fhdate} </td>
+                                            </tr>
+                                            {/volist}
+                                        </table>
+                                        {$list->render()}
+                                          <div class=" alert alert-success text-center col-lg-2 col-md-4 col-sm-12 pull-left">共{$count}条数据</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {include file="common/foot"/}
+</body>
+
+</html>

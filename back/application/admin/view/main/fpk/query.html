@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+{include file="common/head"/}
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img src="__STATIC__/images/thumbnail.png" width="48" height="48" alt="中橡狼牌轮胎"></div>
+                <p>载入中，请...</p>
+            </div>
+        </div>
+        <!-- Overlay For Sidebars -->
+        <div class="overlay" style="display: none;"></div>
+        <div id="wrapper">
+            <!-- 引入头部文件 -->
+            {include file="common/top"/}
+            <!-- 引入左侧导航 -->
+            {include file="common/left"/}
+             {include file="common/menu"/}
+                        <div id="main-content">
+                            <div class="container-fluid">
+                                <div class="block-header">
+                                    <div class="row">
+                                        <div class="col-lg-5 col-md-8 col-sm-12">
+                                            <h2>母胎信息查询</h2>
+                                        </div>
+                                        <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+                                            <ul class="breadcrumb justify-content-end">
+                                                <li class="breadcrumb-item"><a href="index.php"><i class="icon-home"></i></a></li>
+                                                <li class="breadcrumb-item active">母胎信息查询</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-12">
+                                        <div class="col-4"></div>
+                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <form action="" method="get">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">请输入查询信息</span>
+                                                    </div>
+                                                    <input name="code" class="form-control">
+                                                    <input type="submit" class="btn btn-info" value="查询">
+                                                </div>
+                                            </form>
+                                        </div>
+                                  
+                                    </div>
+                                </div>
+                                <table class="table table-hover">
+                                            <thead class="thead-dark">
+                                                <tr><th>序号</th>
+                                                    <th>商品ID</th>
+                                                    <th>商品编码</th>
+                                                    <th>产品型号</th>
+                                                    <th>花纹</th>
+                                                    <th>规格</th>
+                                                    <th>条形码</th>
+                                                    <th>生产日期</th>
+                                                    <th>是否演示胎</th>
+                                                </tr>
+                                            </thead>
+                                     
+                                            {volist name="list" id="mtk"}
+                                            <tr>
+                                            <td> {$page?($currentPage-1)*10+$i:$i}</td>    
+                                            <td>{$mtk.id}</td>
+                                            <td>{$mtk.ordernum} </td>
+                                            <td>{$mtk.model} </td>
+                                            <td>{$mtk.figure} </td>
+                                            <td>{$mtk.tp} </td>
+                                            {if condition="$mtk.tp neq null"}
+                                            <td>{$mtk.code} </td>
+                                            <td>{$mtk.pd} </td>
+                                            {/if}
+                                            {switch name="$cpk.yst"}
+                                            {case value="1"}<td>是 </td>{/case}
+                                            {case value="0"}<td>否 </td>{/case}
+                                            {/switch}
+                                            </tr>
+                                            {/volist}
+                                        </table>
+                                        {$list->render()}
+                                          <div class=" alert alert-success text-center col-lg-2 col-md-4 col-sm-12 pull-left">共{$count}条数据</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {include file="common/foot"/}
+</body>
+
+</html>

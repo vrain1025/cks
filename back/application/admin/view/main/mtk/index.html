@@ -1,0 +1,71 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+        <div id="wrapper">
+            <div id="main-content">
+                <div class="container-fluid">
+                    <div class="block-header">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <h2>母胎库存信息</h2>
+                            </div>
+                            <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+                                <ul class="breadcrumb justify-content-end">
+                                    <li class="breadcrumb-item"><a href="index.php"><i class="icon-home"></i></a></li>
+                                    <li class="breadcrumb-item active">母胎库存信息</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-12">
+                            <!-- 排序开始 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 pull-right">
+                                <form action="" method="get">
+                                    <div class="form-group">
+                                        <label>排序方式</label>
+                                        <br>
+                                        <label class="fancy-radio custom-color-red">
+                                            <input name="px" required="" type="radio" value="" data-parsley-errors-container="#error-radio" data-parsley-multiple="gender" {if condition="$px eq ''" } checked="checked" {/if}> <span><i></i>按商品编码排列</span>
+                                        </label>
+                                        <label class="fancy-radio custom-color-blue">
+                                            <input name="px" type="radio" value="asc" data-parsley-multiple="gender" {if condition="$px eq 'asc'" } checked="checked" {/if}> <span><i></i>按库存升序排列</span>
+                                        </label>
+                                        <label class="fancy-radio custom-color-green">
+                                            <input name="px" type="radio" value="desc" data-parsley-multiple="gender" {if condition="$px eq 'desc'" } checked="checked" {/if}> <span><i></i>按库存降序排列</span>
+                                        </label>
+                                        <input type="submit"  class="btn btn-success  " value="确认">
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                            <!-- 排序结束 -->
+                        </div>
+                    </div>
+                    <table class="table table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>商品编码</th>
+                                <th>产品型号</th>
+                                <th>花纹</th>
+                                <th>规格</th>
+                                <th>数量</th>
+                            </tr>
+                        </thead>
+                        <tr></tr>
+                        {volist name="list" id="mtk"}
+                        <td>{$mtk.ordernum} </td>
+                        <td>{$mtk.model} </td>
+                        <td>{$mtk.figure} </td>
+                        <td>{$mtk.tp} </td>
+                        <td>{$mtk.cnt}条 </td>
+                        </tr>
+                        {/volist}
+                    </table>
+
+{$list->render()}
+
+                </div>
+                <div class=" alert alert-success text-center col-lg-2 col-md-4 col-sm-12 pull-left">共{$count}条数据</div>
+            </div>
+        </div>
+    </div>

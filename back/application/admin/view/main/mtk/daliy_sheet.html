@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>:: 中橡狼牌轮胎 :: </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="中橡狼牌轮胎 Bootstrap 4.1.1 Admin Template">
+    <meta name="author" content="ThemeMakker, design by: ThemeMakker.com">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="__STATIC__/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__STATIC__/vendor/animate-css/animate.min.css">
+    <link rel="stylesheet" href="__STATIC__/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__STATIC__/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+    <link rel="stylesheet" href="__STATIC__/vendor/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="__STATIC__/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="__STATIC__/css/main.css">
+    <link rel="stylesheet" href="__STATIC__/css/color_skins.css">
+</head>
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img src="__STATIC__/images/thumbnail.png" width="48" height="48" alt="中橡狼牌轮胎"></div>
+                <p>载入中，请...</p>
+            </div>
+        </div>
+        <!-- Overlay For Sidebars -->
+        <div class="overlay" style="display: none;"></div>
+        <div id="wrapper">
+            <!-- 引入头部文件 -->
+            {include file="common/top"/}
+            <!-- 引入左侧导航 -->
+            {include file="common/left"/}
+             {include file="common/menu"/}
+                        <div id="main-content">
+                            <div class="container-fluid">
+                                         <div class="block-header">
+                                    <div class="row">
+                                        <div class="col-lg-5 col-md-8 col-sm-12">
+                                            <h2>母胎入库日志</h2>
+                                        </div>
+                                        <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+                                            <ul class="breadcrumb justify-content-end">
+                                                <li class="breadcrumb-item"><a href="index.php"><i class="icon-home"></i></a></li>
+                                                <li class="breadcrumb-item active">母胎入库日志</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-12">
+                                        <div class="col-4 pull-right">
+                                            <form action="cptj.php" method="post">
+                                                <label class="radio-inline"><input type="radio" name="spbm" checked="checked" value="ordernum">按商品编码排列</label>
+                                                <label class="radio-inline"><input type="radio" name="sxpl" value="cnt">按库存升序排列</label>
+                                                <label class="radio-inline"><input type="radio" name="jxpl" value="cnt2">按库存降序排列</label>
+                                                <input type="submit" name="" value="确认">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-hover text-center">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>序号</th>
+                                            <th>商品ID</th>
+                                            <th>商品编码</th>
+                                            <th>产品型号</th>
+                                            <th>花纹</th>
+                                            <th>规格</th>
+                                            <th>条形码</th>
+                                            <th>生产日期</th>
+                                            <th>胶号</th>
+                                            <th>是否演示胎</th>
+                                        </tr>
+                                    </thead>
+                                    {volist name="list" id="cpk"}
+                                    <tr>
+                                        <td> {$page?($currentPage-1)*10+$i:$i}</td>
+                                        <td>{$cpk.id}</td>
+                                        <td>{$cpk.ordernum} </td>
+                                        <td>{$cpk.model} </td>
+                                        <td>{$cpk.figure} </td>
+                                        <td>{$cpk.tp} </td>
+                                        {if condition="$cpk.tp neq null"}
+                                        <td>{$cpk.code} </td>
+                                        <td>{$cpk.date} </td>
+                                        {/if}
+                                        <td>{$cpk.glue} </td>
+                                        {switch name="$cpk.yst"}
+                                        {case value="1"}<td>是 </td>{/case}
+                                        {case value="0"}<td>否 </td>{/case}
+                                        {/switch}
+                                    </tr>
+                                    {/volist}
+                                </table>
+                                {$list->render()}
+                                <div class=" alert alert-success text-center col-4 pull-left"><strong>今天共入库{$count}条轮胎&nbsp;&nbsp;<i class="icon-spinner icon-spin"></i> &nbsp;&nbsp;其中普通胎{$countnoyst}条&nbsp;&nbsp;<i class="icon-spinner icon-spin"></i>&nbsp;&nbsp; 演示胎{$countyst}条</strong></div>
+                            </div>
+                        </div>
+                        {include file="common/foot"/}
+</body>
+
+</html>

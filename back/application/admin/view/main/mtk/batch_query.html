@@ -1,0 +1,71 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+        <div id="wrapper">
+ <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-8 col-sm-12">
+                        <h2>母胎批量查询</h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+                        <ul class="breadcrumb justify-content-end">
+                            <li class="breadcrumb-item"><a href="index.php"><i class="icon-home"></i></a></li>                            
+                            <li class="breadcrumb-item active">母胎批量查询</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-12">
+
+        <form action="" method="get">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend " id="ol">
+                   <textarea class="text-center" style="overflow-y:hidden;background-color:#E8EBEE;" cols="5" rows="30" id="li" disabled ></textarea>
+                </div>
+                <textarea name="code" class="form-control " rows="30" id="c2" onblur="check('2')" onkeyup="keyUp()" onFocus="clearValue('2')" onscroll="G('li').scrollTop = this.scrollTop;" oncontextmenu="return false" ></textarea>
+            </div>
+            <div class="text-right">
+                    
+                <input type="submit" class="btn btn-info mx-3" value="查询">
+                </div>             
+            </form>
+    
+             <div class="col-4"></div>
+             <table class="table table-hover">
+                                            <thead class="thead-dark">
+                                                <tr><th>序号</th>
+                                                    <th>商品ID</th>
+                                                    <th>商品编码</th>
+                                                    <th>产品型号</th>
+                                                    <th>花纹</th>
+                                                    <th>规格</th>
+                                                    <th>条形码</th>
+                                                    <th>生产日期</th>
+                                                </tr>
+                                            </thead>                                            
+                                            {volist name="list" id="mtk"}
+                                            <tr>
+                                            <td> {$page?($currentPage-1)*10+$i:$i}</td>
+                                            <td>{$mtk.id}</td>
+                                            <td>{$mtk.ordernum} </td>
+                                            <td>{$mtk.model} </td>
+                                            <td>{$mtk.figure} </td>
+                                            <td>{$mtk.tp} </td>
+                                            {if condition="$mtk.tp neq null"}
+                                            <td>{$mtk.code} </td>
+                                            <td>{$mtk.pd} </td>
+                                            {/if}
+                                            </tr>
+                                            {/volist}
+                                        </table>
+                                        {$list->render()}
+                                            <div class=" alert alert-success text-center col-lg-2 col-md-4 col-sm-12 pull-left">共{$count}条数据</div>
+           </div>
+                    </div>
+                </div>
+            </div>
+</div>
+</div>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+{include file="common/head"/}
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img src="__STATIC__/images/thumbnail.png" width="48" height="48" alt="中橡狼牌轮胎"></div>
+                <p>载入中，请...</p>
+            </div>
+        </div>
+        <!-- Overlay For Sidebars -->
+        <div class="overlay" style="display: none;"></div>
+        <div id="wrapper">
+            <!-- 引入头部文件 -->
+            {include file="common/top"/}
+            <!-- 引入左侧导航 -->
+            {include file="common/left"/}
+            {include file="common/menu"/}
+            <div id="main-content">
+                <div class="container-fluid">
+                    <div class="block-header">
+                        <div class="row">
+                            <div class="row clearfix"></div>
+                    <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>添加用户</h2>
+                        </div>
+                        <div class="body">
+                            <form id="basic-form" method="Post" action="{:url('addResult')}">
+                                <div class="form-group">
+                                    <label>用户名</label>
+                                    <input class="form-control" required="" type="text" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label>密码</label>
+                                    <input class="form-control" required="" type="password" name="password">
+                                </div>
+                                  <div class="form-group">
+                                    <label>密码校验</label>
+                                    <input class="form-control" required="" type="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>用户描述</label>
+                                    <textarea class="form-control" required="" rows="3" cols="30"></textarea>
+                                </div>                              
+                          
+                                <div class="form-group">                        
+                                 <div class="col-lg-6 col-md-12">
+                                    <label>选择用户组</label><br/>
+                                    
+                                        <select name="groupid" class="multiselect multiselect-custom" id="single-selection" >
+                                           {volist name="groupList" id="list"}
+                                            <option value="{$list.id}">{$list.title}</option>                                     
+                                            {/volist}
+                                        </select>
+                                   
+                                </div>
+                                </div>
+                                <br>
+                                <button class="btn btn-primary" type="submit">提交</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+               
+                    
+                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {include file="common/foot"/}
+</body>
+
+</html>

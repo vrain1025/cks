@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+{include file="common/head"/}
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img src="__STATIC__/images/thumbnail.png" width="48" height="48" alt="中橡狼牌轮胎"></div>
+                <p>载入中，请...</p>
+            </div>
+        </div>
+        <!-- Overlay For Sidebars -->
+        <div class="overlay" style="display: none;"></div>
+        <div id="wrapper">
+            <!-- 引入头部文件 -->
+            {include file="common/top"/}
+            <!-- 引入左侧导航 -->
+            {include file="common/left"/}
+            {include file="common/menu"/}
+            <div id="main-content">
+                <div class="container-fluid">
+                    <div class="block-header">
+                        <div class="row">
+                            <div class="row clearfix"></div>
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="header">
+                                        <h2>用户列表</h2>
+                                        <ul class="header-dropdown">
+                                            <li><a href="{:url('user/add')}" data-toggle="modal" data-target="#addcontact"><i class="icon-plus"></i></a></li>
+                                            <li> <a href="javascript:void(0);" data-toggle="cardloading" data-loading-effect="pulse"><i class="icon-refresh"></i></a></li>
+                                            <li><a href="javascript:void(0);" class="full-screen"><i class="icon-size-fullscreen"></i></a></li>
+                                            <li class="dropdown">
+                                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+                                                <ul class="dropdown-menu dropdown-menu-right animated bounceIn">
+                                                    <li><a href="javascript:void(0);">Action</a></li>
+                                                    <li><a href="javascript:void(0);">Another Action</a></li>
+                                                    <li><a href="javascript:void(0);">Something else</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover m-b-0 c_list">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>
+                                                            <label class="fancy-checkbox">
+                                                                <input class="select-all" type="checkbox" name="checkbox">
+                                                                <span></span>
+                                                            </label>
+                                                        </th>
+                                                        <th>用户名</th>
+                                                        <th>用户关态</th>
+                                                        <th>用户组</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {volist name="list" id="list"}
+                                                    <tr>
+                                                        <td style="width: 50px;">
+                                                            <label class="fancy-checkbox">
+                                                                <input class="checkbox-tick" type="checkbox" name="checkbox">
+                                                                <span></span>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <img src="../assets/images/xs/avatar1.jpg" class="rounded avatar" alt="">
+                                                            <p class="c_name">{$list.username}</p>
+                                                        </td>
+                                                        <td>
+                                                            {switch name="list.status" }
+                                                            {case value="1" }<span class="badge badge-success">启用</span>{/case}
+                                                            {case value="0"}<span class="badge badge-success">禁用</span>{/case}
+                                                            {/switch}
+                                                        </td>
+                                                        <td>
+                                                            <span>{$list.groupid}</span>
+                                                        </td>
+                                                        <td>
+                                                            <button title="编辑" class="btn btn-info" type="button"><i class="icon-edit"></i></button>
+                                                            <button title="删除" class="btn btn-danger js-sweetalert" type="button" data-type="confirm"><i class="icon-trash"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                    {/volist}
+                                                    {$list->render()}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {include file="common/foot"/}
+</body>
+
+</html>

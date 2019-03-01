@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+{include file="common/head"/}
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img src="__STATIC__/images/thumbnail.png" width="48" height="48" alt="中橡狼牌轮胎"></div>
+                <p>载入中，请...</p>
+            </div>
+        </div>
+        <!-- Overlay For Sidebars -->
+        <div class="overlay" style="display: none;"></div>
+        <div id="wrapper">
+            <!-- 引入头部文件 -->
+            {include file="common/top"/}
+            <!-- 引入左侧导航 -->
+            {include file="common/left"/}
+             {include file="common/menu"/}
+                        <div id="main-content">
+                            <div class="container-fluid">
+                                <div class="block-header">
+                                    <div class="row">
+                                        <div class="col-lg-5 col-md-8 col-sm-12">
+                                            <h2>成品出库批量查询</h2>
+                                        </div>
+                                        <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+                                            <ul class="breadcrumb justify-content-end">
+                                                <li class="breadcrumb-item"><a href="index.php"><i class="icon-home"></i></a></li>
+                                                <li class="breadcrumb-item active">成品出库批量查询</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-12">
+                                        <form action="" method="get">
+                                            <div class="row align-items-center justify-content-center">
+                                                <h2>狼牌轮胎条码查询</h2>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend " id="ol">
+                                                    <textarea class="text-center" style="overflow-y:hidden;background-color:#E8EBEE;" cols="5" rows="30" id="li" disabled></textarea>
+                                                </div>
+                                                <textarea name="code" class="form-control " rows="30" id="c2" onblur="check('2')" onkeyup="keyUp()" onFocus="clearValue('2')" onscroll="G('li').scrollTop = this.scrollTop;" oncontextmenu="return false"></textarea>
+                                            </div>
+                                            <div class="text-right">
+                                                <input type="submit" class="btn btn-info mx-3" value="查询">
+                                            </div>
+                                        </form>
+                                        {if condition="$count >0"}
+                                        <div class="col-4"></div>
+                                        <table class="table table-hover">
+                                            <thead class="thead-dark">
+                                                <tr><th>序号</th>
+                                                    <th>商品ID</th>
+                                                    <th>商品编码</th>
+                                                    <th>产品型号</th>
+                                                    <th>花纹</th>
+                                                    <th>规格</th>
+                                                    <th>条形码</th>
+                                                    <th>生产日期</th>
+                                                </tr>
+                                            </thead>
+                                            <tr></tr>
+                                            {volist name="list" id="mtk""}
+                                            <tr>
+                                                <td> {$page?($currentPage-1)*10+$i:$i}</td>
+                                                <td>{$mtk.id}</td>
+                                                <td>{$mtk.ordernum} </td>
+                                                <td>{$mtk.model} </td>
+                                                <td>{$mtk.figure} </td>
+                                                <td>{$mtk.tp} </td>
+                                                {if condition="$mtk.tp neq null"}
+                                                <td>{$mtk.code} </td>
+                                                <td>{$mtk.pd} </td>
+                                                {/if}
+                                            </tr>
+                                            {/volist}
+                                        </table>
+                                        {$list->render()}
+                                            <div class=" alert alert-success text-center col-lg-2 col-md-4 col-sm-12 pull-left">共{$count}条数据</div>
+                                    </div>
+                                    
+                                    <div class="col-4 clearfix"></div>
+                                    <div class="col-12">
+            <form name="add"  method="get" action="{:url('cpck/wareHousingResult')}" >
+              <div class="form-group">
+                  <label for="dls" class="my-3">选择收货单位</label>
+                <select name="dls" class="form-control">
+                <option value="北京市代理">客户自提</option>  
+                <option value="北京市代理">中橡狼牌轮胎信阳公司</option>
+                 <option value="北京市代理">中橡狼牌轮胎北京公司</option>
+                <option value="北京市代理">北京市代理</option>
+                <option value="天津市代理">天津市代理</option>
+                <option value="河北省代理">河北省代理</option>
+                <option value="山西省代理">山西省代理</option>
+                <option value="内蒙古自治区">内蒙古自治区</option>
+                <option value="辽宁省代理">辽宁省代理</option>
+                <option value="吉林省代理">吉林省代理</option>
+                <option value="黑龙江省代理">黑龙江省代理</option>
+                <option value="上海市代理">上海市代理</option>
+                <option value="江苏省代理">江苏省代理</option>
+                <option value="浙江省代理">浙江省代理</option>
+                <option value="安徽省代理">安徽省代理</option>
+                <option value="福建省代理">福建省代理</option>
+                <option value="江西省代理">江西省代理</option>
+                <option value="山东省代理">山东省代理</option>
+                <option value="河南省代理">河南省代理</option>
+                <option value="湖北省代理">湖北省代理</option>
+                <option value="湖南省代理">湖南省代理</option>
+                <option value="广东省代理">广东省代理</option>
+                <option value="广西壮族自治区">广西壮族自治区</option>
+                <option value="海南省代理">海南省代理</option>
+                <option value="重庆市代理">重庆市代理</option>
+                <option value="四川省代理">四川省代理</option>
+                <option value="贵州省代理">贵州省代理</option>
+                <option value="云南省代理">云南省代理</option>
+                <option value="西藏自治区">西藏自治区</option>
+                <option value="陕西省代理">陕西省代理</option>
+                <option value="甘肃省代理">甘肃省代理</option>
+                <option value="青海省代理">青海省代理</option>
+                <option value="宁夏回族自治区">宁夏回族自治区</option>
+                <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+                <option value="佛山市代理">佛山市代理</option>
+                  
+                </select>
+              <div class="input-group mb-3 my-3">
+                <input type="text" class="form-control" placeholder="请输入订单编号"  name="ddnum" >
+                <input type="text" class="form-control mx-3" placeholder="请输入发货日期"  name="fhdate" > 
+                <input type="text" class="form-control mx-3" placeholder="请输收货人姓名"  name="shname" >
+                <input type="text" class="form-control" placeholder="请输入收货人电话"  name="shphone" >
+                <input type="text" class="form-control mx-3" placeholder="请输入收货人地址"  name="shaddr" > 
+                <input type="text" class="form-control" placeholder="请输入仓库管理员姓名"  name="fhgly" >
+                <input type="submit" name="submit" class="btn btn-primary mx-3" value="确认出库">
+              </div>
+</div>
+ </form></div>
+                                    <div class="col-2 ">
+                                        <form method="get" action="export" >
+                                            <input type="hidden" name="$data">
+                                            <input type="submit" name="submit" class="btn btn-success active my-3" value="导出到EXCEL">
+                                        </form>  
+                                       </div>
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
+                        {include file="common/foot"/}
+</body>
+
+</html>
